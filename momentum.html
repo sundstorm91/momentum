@@ -2,10 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="./css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>momentum</title>
+    <script src="./js/date.js" defer></script>
 </head>
 <body>
+
+<header class="header">
+    <div class="player">
+        <div class="player-control">
+        </div>
+        <ul class="play-list"></ul>
+    </div>
+    <div class="weather">
+        <input type="text" class="city">
+        <div class="weather-icon owf owf-804"></div>
+        <div class="weather-error"></div>
+        <div class="description-container"></div>
+        <div class="wind"></div>
+        <div class="humidity"></div>
+    </div>
+</header>
+<main class="main">
+    <div class="slider-icons">
+        <button class="prev-slider slider"></button>
+        <button class="next-slider slider"></button>
+    </div>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greetins-container">
+        <div class="const-greet"></div>
+        <input type="text" class="greet-name">
+    </div>
+</main>
 
 </body>
 </html>
