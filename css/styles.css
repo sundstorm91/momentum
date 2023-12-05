@@ -13,10 +13,27 @@
     font-family: 'Arial-MT';
     font-size: 100px;
     letter-spacing: -4px;
+    color: white;
 }
 
 .date {
     min-height: 28px;
     font-size: 24px;
     margin-bottom: 20px;
+    color: white;
+}
+
+.greetins-container {
+    display: flex;
+    justify-content: space-between;
+
+    flex-direction: column;
+
+}
+.const-greet {
+    border: 2px solid black;
+}
+
+.greet-name {
+    border: 2px solid red;
 }
