@@ -30,7 +30,7 @@ showTime()
 
 function showDate () {
     const d = new Date();
-    const currentDate = d.toLocaleDateString('en-GB', options).split('').slice(0, 19).join('')
+    const currentDate = d.toLocaleDateString('en-GB', options).split('').slice(0, 21).join('')
     return date.textContent = currentDate;
 }
 
@@ -116,11 +116,95 @@ function setBg (currentTime, randomInt) {
     `url(${img.src})`
   })
 }
+
 setBg(greetMessage,randomInt)
 
+/* weather */
+const weatherIcon = document.querySelector(".weather-icon");
+const temperature = document.querySelector(".temperature");
+const weatherDescription = document.querySelector(".weather-description");
+const cityInput = document.querySelector('.city')
+
+/*
+
+async function getWeather () {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&lang=ru&appid=102d842f590fc3c13d241666da438354
+    &units=metric`
+    const responce = await fetch(url)
+    const data = await responce.json()
+
+    weatherIcon.className = 'weather-icon owf'
+    weatherIcon.classList.add(`owf-${data.weather[0].id}`)
+    temperature.textContent = `${data.main.temp}°C`
+    weatherDescription.textContent = data.weather[0].description
+    document.querySelector('.wind').textContent = `Скорость ветра: ${data.wind.speed} м/с`
+    document.querySelector('.humidity').textContent = `Влажность:${data.main.humidity}%`
+}
+
+getWeather()
+
+cityInput.addEventListener('change', getWeather)
+
+function setWeatherLS () {
+    localStorage.setItem ('weather', cityInput.value)
+
+}
+
+window.addEventListener('beforeunload', setWeatherLS)
+
+function getWeatherLS () {
+    const loadWeather = localStorage.getItem('weather')
+    if (loadWeather !== null) {
+        cityInput.value = loadWeather
+        getWeather()
+    }
+}
+
+window.addEventListener('load', getWeatherLS) */
+
+/* playAudio */
+const playButton = document.querySelector('.play')
+let isPlay = false;
+const audio = new Audio();
+
+audio.onloadedmetadata = function() {
+    console.log(audio.duration)
+    if (audio.currentTime === 2) {
+        console.log('123')
+    }
+}
 
 
+function playStopAudio () {
+    audio.src='./assets/sounds/ManuChao-Megustastu.mp3'
+
+    audio.currentTime = 0;
+    if (isPlay === false) {
+        audio.play()
+        isPlay = true
+
+    } else {
+        if (isPlay === true) {
+            audio.pause()
+            isPlay = false
+
+        }
+    }
+}
 
 
+playButton.addEventListener('click', function () {
+    if (!isPlay) {
+        playButton.classList.remove('play')
+        playButton.classList.add('pause')
+    } else {
+        playButton.classList.remove('pause')
+        playButton.classList.add('play')
+    }
+
+    playStopAudio()
+})
+import playList from "..//js/playList.js"
+console.log(playList)
 
 

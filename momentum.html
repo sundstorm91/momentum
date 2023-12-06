@@ -4,23 +4,31 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/owfont-regular.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>momentum</title>
-    <script src="./js/date.js" defer></script>
+    <script type="module" src="./js/date.js" defer></script>
+
 </head>
 <body>
 
 <header class="header">
     <div class="player">
         <div class="player-control">
+            <button class="play-prev button-player"></button>
+            <button class="play button-player"></button>
+            <button class="play-next button-player"></button>
         </div>
         <ul class="play-list"></ul>
     </div>
     <div class="weather">
         <input type="text" class="city">
-        <div class="weather-icon owf owf-804"></div>
+        <div class="weather-icon owf"></div>
         <div class="weather-error"></div>
-        <div class="description-container"></div>
+        <div class="description-container">
+            <span class="temperature"></span>
+            <span class="weather-description"></span>
+        </div>
         <div class="wind"></div>
         <div class="humidity"></div>
     </div>
@@ -36,6 +44,7 @@
         <div class="const-greet"></div>
         <input type="text" class="greet-name">
     </div>
+    <button class="proba">PROBA</button>
 </main>
 
 </body>
