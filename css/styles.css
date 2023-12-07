@@ -56,10 +56,12 @@
     background-color: transparent;
 }
 
-.player {
-    width: 157px;
-    height: 180px;
-    border: 1px solid white;
+
+
+.player-control {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .play-prev {
@@ -132,4 +134,10 @@
 }
 .button-player:hover {
     opacity: 1;
+}
+
+.playlist-item {
+    color: white;
+    font-size: 18px;
+    list-style: "\2713";
 }

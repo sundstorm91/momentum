@@ -1,22 +1,22 @@
 const playList = [
     {
       title: 'AK - Discovery',
-      src: '../momentum/assets/sounds/AK-Discovery.mp3',
+      src: '..//assets/sounds/AK-Discovery.mp3',
       /* duration: '03:34' */
     },
     {
       title: 'AK   - Life after death',
-      src: '../momentum/assets/sounds/AK-LifeAfterDeath.mp3',
+      src: '..//assets/sounds/AK-LifeAfterDeath.mp3',
       /* duration: '06:01' */
     },
     {
       title: 'Astral - Nomyn',
-      src: '../momentum/assets/sounds/Nomy.mp3',
+      src: '..//assets/sounds/Nomy.mp3',
       /* duration: '05:39' */
     },
     {
       title: 'CMA - Forgive',
-      src: '../momentum/assets/sounds/Cma-Forgive.mp3',
+      src: '..//assets/sounds/Cma-Forgive.mp3',
       /* duration: '03:10' */
     },
     {
