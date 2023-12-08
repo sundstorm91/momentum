@@ -21,8 +21,9 @@ function showTime () {
     setTimeout(showTime, 1000)
     showDate()
     showGreeting(greetMessage)
-    return Time.textContent = currentTime
+    getTimeOfDay ()
 
+    return Time.textContent = currentTime
 }
 
 showTime()
@@ -120,25 +121,24 @@ function setBg (currentTime, randomInt) {
 setBg(greetMessage,randomInt)
 
 /* weather */
-const weatherIcon = document.querySelector(".weather-icon");
+/* const weatherIcon = document.querySelector(".weather-icon");
 const temperature = document.querySelector(".temperature");
 const weatherDescription = document.querySelector(".weather-description");
 const cityInput = document.querySelector('.city')
 
-/*
+
 
 async function getWeather () {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&lang=ru&appid=102d842f590fc3c13d241666da438354
-    &units=metric`
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&lang=en&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
     const responce = await fetch(url)
     const data = await responce.json()
 
     weatherIcon.className = 'weather-icon owf'
     weatherIcon.classList.add(`owf-${data.weather[0].id}`)
-    temperature.textContent = `${data.main.temp}°C`
+    temperature.textContent = `${data.main.temp.toFixed(0)}°C`
     weatherDescription.textContent = data.weather[0].description
-    document.querySelector('.wind').textContent = `Скорость ветра: ${data.wind.speed} м/с`
-    document.querySelector('.humidity').textContent = `Влажность:${data.main.humidity}%`
+    document.querySelector('.wind').textContent = `Wind speed: ${data.wind.speed} m/s`
+    document.querySelector('.humidity').textContent = `Humidity: ${data.main.humidity}%`
 }
 
 getWeather()
@@ -163,6 +163,7 @@ function getWeatherLS () {
 window.addEventListener('load', getWeatherLS) */
 
 /* playAudio */
+
 const playButton = document.querySelector('.play')
 const playPrev = document.querySelector('.play-prev')
 const playNext = document.querySelector('.play-next')
@@ -193,9 +194,7 @@ function playStopAudio () {
 
         }
     }
-
 }
-
 
 function playAudio () {
     audio.src = playList[playNum].src
@@ -211,7 +210,6 @@ function playAudio () {
     audio.play()
 }
 
-
 playButton.addEventListener('click', function () {
     if (!isPlay) {
         console.log(isPlay)
@@ -225,7 +223,6 @@ playButton.addEventListener('click', function () {
 
     playStopAudio()
 })
-
 
 playPrev.addEventListener('click', function () {
     playNum > 0 ? playNum -= 1 : playNum = 5
@@ -274,8 +271,6 @@ window.addEventListener('load', getPlaynumLS) */
 /* create playList */
 
 const playListContainer = document.querySelector('.playlist-container')
-const li = document.createElement('li')
-/* li.className = 'playList-item'; */
 
 
 playList.forEach((element) => {
