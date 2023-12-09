@@ -124,12 +124,26 @@
 }
 
 .player-control {
-
+    position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: center;
 
 }
+
+.volume {
+    position: absolute;
+    background-image: url(..//assets/svg/volume.svg);
+    width: 23px;
+    height: 23px;
+    background-size: 23px 23px;
+    top: 1px;
+    right: 1px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+
 
 .play-prev {
 
@@ -247,10 +261,7 @@
     position: relative;
     cursor: pointer;
     box-shadow: 0 2px 10px 0 #0008;
-
-    /*  */
     width: 100%;
-    /* width: 252px; */
     height: 10px;
 }
 
@@ -278,4 +289,24 @@
 .audio-time {
     display: flex;
     justify-content: space-evenly;
+}
+
+.volume-line {
+    display: none;
+    background: white;
+    width: 50px;
+    height: 10px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 2px 10px 0 #0008;
+    position: absolute;
+    left: 23px;
+    top: 5px;
+}
+
+.volume-progress {
+    width: 0%;
+    background: coral;
+    height: 100%;
+    transition: .25s;
 }

@@ -325,10 +325,17 @@ playList.forEach((element) => {
     playListContainer.insertAdjacentHTML('beforeend', `<li class="playlist-item">${element.title}</li>`)
 })
 
+let volumeSlider = document.querySelector('.volume-line')
+volumeSlider.addEventListener('click', element => {
+    const  sliderWidth = window.getComputedStyle(volumeSlider).width;
+    const volumeState = element.offsetX / parseInt(sliderWidth)
+    audio.volume = volumeState
+    document.querySelector('.volume-progress').style.width = volumeState * 100 + '%';
+}, false)
 
-console.log(playList[playNum].src)
-
-
+document.querySelector('.volume').addEventListener('click', function () {
+    volumeSlider.style.display = volumeSlider.style.display === 'none'?  'block' : 'none'
+})
 
 
 
