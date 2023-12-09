@@ -167,30 +167,78 @@ window.addEventListener('load', getWeatherLS) */
 const playButton = document.querySelector('.play')
 const playPrev = document.querySelector('.play-prev')
 const playNext = document.querySelector('.play-next')
+const audioPlayer = document.querySelector('.player')
+
+
 
 let isPlay = false;
 const audio = new Audio();
 let playNum = 0
 
-console.log(playList[playNum].src)
+
+/* full-time render */
+audio.addEventListener('loadeddata', () => {
+    audioPlayer.querySelector('.full-time').textContent = getFullTime(audio.duration)
+}, false)
+
+function getFullTime (duration) {
+
+    let seconds = parseInt(duration);
+    let minutes = parseInt(seconds / 60);
+    seconds -= minutes * 60;
+    const hours = parseInt(minutes / 60);
+    minutes -= hours * 60;
+
+    if (hours === 0) {
+        return (`${minutes}:${String(seconds % 60).padStart(2, 0)}`)
+    } else {
+        return (`${String(hours).padStart(2, 0)}:${String(minutes).padStart(2, 0)}:${String(seconds % 60).padStart(2, 0)}`)
+    }
+
+}
+
+/* Установка Timeline */
+
+const timeLine = audioPlayer.querySelector('.timeline')
+
+timeLine.addEventListener('click', element => {
+    const timelineWidth = window.getComputedStyle(timeLine).width;
+    const timeToSeek = element.offsetX / parseInt (timelineWidth) * audio.duration
+    console.log(timeToSeek)
+    audio.currentTime = timeToSeek
+}, false)
+
+
+
+setInterval(() => {
+    /* наложение прогресса на timeline */
+    const progressBar = document.querySelector('.progress')
+    progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
+    /* а также наложение текущего времени */
+    const currTimeAudio = document.querySelector('.current-time')
+    currTimeAudio.textContent = getFullTime(audio.currentTime)
+
+}, 500)
+
+
 
 function playStopAudio () {
     audio.src = playList[playNum].src
 
     audio.currentTime = 0;
     if (isPlay === false) {
-        console.log(`сработала ф-ия if, ${isPlay}`)
+        /* console.log(`сработала ф-ия if, ${isPlay}`) */
         audio.play()
         isPlay = true
-        console.log(`сработала ф-ия if, поменялось с false на - ${isPlay}`)
+        /* console.log(`сработала ф-ия if, поменялось с false на - ${isPlay}`) */
 
 
     } else {
         if (isPlay === true) {
-            console.log(`сработала ф-ия else, ${isPlay}`)
+            /* console.log(`сработала ф-ия else, ${isPlay}`) */
             audio.pause()
             isPlay = false
-            console.log(`сработала ф-ия else, поменялось с true на - ${isPlay}`)
+            /* console.log(`сработала ф-ия else, поменялось с true на - ${isPlay}`) */
 
         }
     }
@@ -212,11 +260,11 @@ function playAudio () {
 
 playButton.addEventListener('click', function () {
     if (!isPlay) {
-        console.log(isPlay)
+        /* console.log(isPlay) */
         playButton.classList.remove('play')
         playButton.classList.add('pause')
     } else {
-        console.log(isPlay)
+        /* console.log(isPlay) */
         playButton.classList.remove('pause')
         playButton.classList.add('play')
     }
@@ -274,11 +322,11 @@ const playListContainer = document.querySelector('.playlist-container')
 
 
 playList.forEach((element) => {
-    playListContainer.insertAdjacentHTML('beforeend', `<li class="playlist-item item">${element.title}</li>`)
+    playListContainer.insertAdjacentHTML('beforeend', `<li class="playlist-item">${element.title}</li>`)
 })
 
 
-
+console.log(playList[playNum].src)
 
 
 
