@@ -30,8 +30,9 @@ showTime()
 
 
 function showDate () {
-    const d = new Date();
-    const currentDate = d.toLocaleDateString('en-GB', options).split('').slice(0, 21).join('')
+    const d = new Date()
+    const options = {month: 'long', day: 'numeric', weekday: 'long'};/* ! */
+    const currentDate = d.toLocaleDateString('en-GB', options);
     return date.textContent = currentDate;
 }
 
@@ -121,7 +122,7 @@ function setBg (currentTime, randomInt) {
 setBg(greetMessage,randomInt)
 
 /* weather */
-/* const weatherIcon = document.querySelector(".weather-icon");
+const weatherIcon = document.querySelector(".weather-icon");
 const temperature = document.querySelector(".temperature");
 const weatherDescription = document.querySelector(".weather-description");
 const cityInput = document.querySelector('.city')
@@ -160,7 +161,7 @@ function getWeatherLS () {
     }
 }
 
-window.addEventListener('load', getWeatherLS) */
+window.addEventListener('load', getWeatherLS)
 
 /* playAudio */
 
@@ -224,7 +225,7 @@ setInterval(() => {
 
 function playStopAudio () {
     audio.src = playList[playNum].src
-
+    console.log(playNum)
     audio.currentTime = 0;
     if (isPlay === false) {
         /* console.log(`сработала ф-ия if, ${isPlay}`) */
@@ -299,13 +300,13 @@ playNext.addEventListener('click', function () {
 })
 
 
-/*
-function setPlaynumLS () {
+
+/* function setPlaynumLS () {
     localStorage.setItem('playnum', playNum)
 }
 
-window.addEventListener('beforeunload', setPlaynumLS) */
-
+window.addEventListener('beforeunload', setPlaynumLS)
+ */
 /*
 function getPlaynumLS () {
     const loadPlaynum = localStorage.getItem('playnum')
@@ -322,10 +323,11 @@ const playListContainer = document.querySelector('.playlist-container')
 
 
 playList.forEach((element) => {
-    playListContainer.insertAdjacentHTML('beforeend', `<li class="playlist-item">${element.title}</li>`)
+    playListContainer.insertAdjacentHTML('beforeend', `<li class="playlist-item ${element.title}">${element.title}</li>`)
 })
 
 let volumeSlider = document.querySelector('.volume-line')
+
 volumeSlider.addEventListener('click', element => {
     const  sliderWidth = window.getComputedStyle(volumeSlider).width;
     const volumeState = element.offsetX / parseInt(sliderWidth)
@@ -334,8 +336,13 @@ volumeSlider.addEventListener('click', element => {
 }, false)
 
 document.querySelector('.volume').addEventListener('click', function () {
-    volumeSlider.style.display = volumeSlider.style.display === 'none'?  'block' : 'none'
+    volumeSlider.style.display = volumeSlider.style.display === 'none' ? 'block' : 'none';
 })
+
+const playListItems = document.querySelectorAll('.playlist-item')
+var arr = Array.prototype.slice.call(playListItems)
+console.log(arr)
+
 
 
 

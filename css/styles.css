@@ -3,6 +3,17 @@
     src: url('..//assets/fonts/Arial-MT.woff')
 }
 
+body {
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    background: url(style.css) center/cover, rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    transition: background-image 1s ease-in-out;
+    max-width: 1920px;
+}
+
 * {
     font-family: 'Arial', sans-serif;
 }
@@ -233,7 +244,7 @@
 
 
 .playlist-item::marker {
-    background: coral;
+    color: white;
 }
 
 
@@ -249,7 +260,11 @@
 }
 
 .weather-icon {
-    font-size: 40px;
+    font-size: 50px;
+}
+
+.owf:before {
+    font-size: 45px;
 }
 
 
