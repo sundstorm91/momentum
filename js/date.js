@@ -1,6 +1,8 @@
+/* import { getRandomInt, showGreeting } from "./modules/random.js"; */
+import { getRandomInt, showGreeting  } from "./modules/objFunc.js";
+
 const Time = document.querySelector('.time');
 const date = document.querySelector('.date');
-const greetElement = document.querySelector('.const-greet');
 const greetMessage = `${getTimeOfDay()}`;
 const inputName = document.querySelector('.greet-name');
 const slideNext = document.querySelector('.next-slider');
@@ -58,10 +60,6 @@ function getTimeOfDay () {
 
 }
 
-function showGreeting(current) {
-    return greetElement.textContent = `Good ${current}`
-}
-
 showGreeting(greetMessage)
 
 function setLocaleStorage () {
@@ -82,12 +80,6 @@ window.addEventListener('load', getLocaleStorage)
 
   /* momentum slider */
 
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return `${Math.floor(Math.random() * (max - min)) + min}`.padStart(2, 0)
-}
 
 let randomInt = getRandomInt(1, 20)
 

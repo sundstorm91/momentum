@@ -1,4 +1,5 @@
 /* playAudio */
+import {getFullTime} from './modules/getFullTime.js'
 
 const playButton = document.querySelector('.play')
 const playPrev = document.querySelector('.play-prev')
@@ -17,20 +18,6 @@ audio.addEventListener('loadeddata', () => {
     audioPlayer.querySelector('.full-time').textContent = getFullTime(audio.duration)
 }, false)
 
-function getFullTime (duration) {
-    let seconds = parseInt(duration);
-    let minutes = parseInt(seconds / 60);
-    seconds -= minutes * 60;
-    const hours = parseInt(minutes / 60);
-    minutes -= hours * 60;
-
-    if (hours === 0) {
-        return (`${minutes}:${String(seconds % 60).padStart(2, 0)}`)
-    } else {
-        return (`${String(hours).padStart(2, 0)}:${String(minutes).padStart(2, 0)}:${String(seconds % 60).padStart(2, 0)}`)
-    }
-
-}
 
 /* Установка Timeline */
 
@@ -175,15 +162,15 @@ document.querySelector('.volume').addEventListener('click', function () {
     volumeSlider.style.display = volumeSlider.style.display === 'none' ? 'block' : 'none';
 })
 
-const playListItems = document.querySelectorAll('.playlist-item')
+/* const playListItems = document.querySelectorAll('.playlist-item')
 var arr = Array.prototype.slice.call(playListItems)
-console.log(arr)
+console.log(arr) */
 
-document.querySelector('.btn').addEventListener('click', function () {
+/* document.querySelector('.btn').addEventListener('click', function () {
     console.log(`playnum ${playNum}`)
     console.log(`playlist- ${playList[playNum].src}`)
     console.log(`playlist- ${playListContainer[2]}`)
 
-})
+}) */
 
 import playList from "./playList.js"
