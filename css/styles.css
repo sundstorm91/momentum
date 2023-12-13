@@ -241,12 +241,18 @@ body {
 .playlist-item {
     color: white;
     font-size: 18px;
-    list-style: "\2713";
+    list-style: none;
 }
 
 
-.playlist-item::marker {
-    color: white;
+.playlist-item::before {
+    content: "\2713";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.activ {
+    color: coral;
 }
 
 .weather {

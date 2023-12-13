@@ -64,6 +64,12 @@ function playStopAudio () {
 
         }
     }
+    /* arr[playNum].style.color = 'coral'; */
+    if (arr[playNum] && isPlay) {
+        arr[playNum].style.color = 'coral';
+    } else {
+        arr[playNum].style.color = 'white';
+    }
 }
 
 function playAudio () {
@@ -78,6 +84,8 @@ function playAudio () {
         }
     } */
     audio.play()
+
+
 }
 
 playButton.addEventListener('click', function () {
@@ -105,7 +113,17 @@ playPrev.addEventListener('click', function () {
         playAudio()
 
     }
-})
+
+    if (playNum === 5 && isPlay) {
+        arr[0].style.color = 'white'
+        arr[playNum].style.color = 'coral'
+    } else {
+        arr[playNum].style.color = 'coral';
+        arr[playNum+1].style.color = 'white';
+    }
+}
+
+)
 
 playNext.addEventListener('click', function () {
     playNum < 5 ? playNum += 1 : playNum = 0
@@ -118,7 +136,18 @@ playNext.addEventListener('click', function () {
         playAudio()
 
     }
-})
+
+    if (playNum === 0 && isPlay) {
+        arr[playNum].style.color = 'coral';
+        arr[5].style.color = 'white';
+    } else if (playNum > 0 && playNum <= 5 && isPlay) {
+        arr[playNum].style.color = 'coral';
+        arr[playNum-1].style.color = 'white';
+    }}
+)
+
+
+
 
 
 
@@ -151,6 +180,7 @@ playList.forEach((element) => {
 
 let volumeSlider = document.querySelector('.volume-line')
 
+
 volumeSlider.addEventListener('click', element => {
     const  sliderWidth = window.getComputedStyle(volumeSlider).width;
     const volumeState = element.offsetX / parseInt(sliderWidth)
@@ -162,15 +192,16 @@ document.querySelector('.volume').addEventListener('click', function () {
     volumeSlider.style.display = volumeSlider.style.display === 'none' ? 'block' : 'none';
 })
 
-/* const playListItems = document.querySelectorAll('.playlist-item')
+const playListItems = document.querySelectorAll('.playlist-item')
 var arr = Array.prototype.slice.call(playListItems)
-console.log(arr) */
 
-/* document.querySelector('.btn').addEventListener('click', function () {
+
+document.querySelector('.btn').addEventListener('click', function () {
     console.log(`playnum ${playNum}`)
     console.log(`playlist- ${playList[playNum].src}`)
-    console.log(`playlist- ${playListContainer[2]}`)
+    /* console.log(`playlist- ${playListContainer[2]}`) */
 
-}) */
+
+})
 
 import playList from "./playList.js"

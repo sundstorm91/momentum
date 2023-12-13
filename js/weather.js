@@ -4,7 +4,7 @@ const weatherDescription = document.querySelector(".weather-description");
 const cityInput = document.querySelector('.city')
 
 
-/*
+
 async function getWeather () {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&lang=en&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
     const responce = await fetch(url)
@@ -38,4 +38,3 @@ function getWeatherLS () {
 }
 
 window.addEventListener('load', getWeatherLS)
- */
