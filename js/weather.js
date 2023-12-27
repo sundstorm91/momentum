@@ -12,7 +12,7 @@ async function getWeather () {
 
     weatherIcon.className = 'weather-icon owf'
     weatherIcon.classList.add(`owf-${data.weather[0].id}`)
-    temperature.textContent = `${data.main.temp.toFixed(0)}°C`
+    temperature.textContent = `${data.main.temp.toFixed(0)} °C`
     weatherDescription.textContent = data.weather[0].description
     document.querySelector('.wind').textContent = `Wind speed: ${data.wind.speed} m/s`
     document.querySelector('.humidity').textContent = `Humidity: ${data.main.humidity}%`

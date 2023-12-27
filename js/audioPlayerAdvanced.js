@@ -15,9 +15,10 @@ let playNum = 0
 
 /* full-time render */
 audio.addEventListener('loadeddata', () => {
+
     audioPlayer.querySelector('.full-time').textContent = getFullTime(audio.duration)
 }, false)
-
+console.log(audioPlayer.querySelector('.full-time').textContent)
 
 /* Установка Timeline */
 

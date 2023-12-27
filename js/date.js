@@ -1,4 +1,4 @@
-/* import { getRandomInt, showGreeting } from "./modules/random.js"; */
+
 import { getRandomInt, showGreeting  } from "./modules/objFunc.js";
 
 const Time = document.querySelector('.time');
@@ -18,7 +18,7 @@ const options = {
 
 
 function showTime () {
-    const date = new window.Date();/* date is not is constructor  была ошибка из за глобальной переменной Date*/
+    const date = new window.Date();     /* date is not is constructor  была ошибка из за глобальной переменной Date*/
     const currentTime = date.toLocaleTimeString()
     setTimeout(showTime, 1000)
     showDate()
