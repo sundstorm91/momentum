@@ -82,7 +82,7 @@ body {
     cursor: pointer;
     transition: .3s;
     transform: scale(1);
-    top: 128px;
+    top: 980px;
     left: 27px;
 }
 
@@ -109,7 +109,7 @@ body {
     cursor: pointer;
     transition: .3s;
 
-    top: 128px;
+    top: 980px;
     right: 27px;
 }
 
