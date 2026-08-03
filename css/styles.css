@@ -1,0 +1,345 @@
+@font-face {
+    font-family: 'Arial-MT';
+    src: url('..//assets/fonts/Arial-MT.woff');
+}
+
+/* ===== ФОН НА ВЕСЬ ЭКРАН ===== */
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== ХЕДЕР ===== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px 0 50px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 5;
+}
+
+/* ===== ОСНОВНОЙ БЛОК ===== */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 5;
+}
+
+/* ===== ВРЕМЯ ===== */
+.time {
+    min-height: 124px;
+    margin-bottom: 10px;
+    font-family: 'Arial-MT';
+    font-size: 100px;
+    letter-spacing: -4px;
+    color: white;
+}
+
+/* ===== ДАТА ===== */
+.date {
+    min-height: 28px;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* ===== ПРИВЕТСТВИЕ ===== */
+.greetins-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+* {
+    font-family: 'Arial', sans-serif;
+}
+
+.const-greet {
+    font-size: 50px;
+    color: #fff;
+}
+
+.greet-name {
+    max-width: 50%;
+    padding: 13px 10px 13px 10px;
+    font-size: 55px;
+    text-align: left;
+    color: #fff;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+}
+
+/* ===== ГОРОД ===== */
+.city {
+    width: 100%;
+    height: 34px;
+    padding: 5px;
+    font-size: 32px;
+    line-height: 24px;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #fff;
+    background-color: transparent;
+}
+
+/* ===== СТРЕЛКИ СЛАЙДЕРА ===== */
+.prev-slider {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    background-image: url(..//assets/svg/slider-prev.svg);
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 100;
+}
+
+.next-slider {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-image: url(..//assets/svg/slider-next.svg);
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 100;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider:active {
+    transform: scale(0.9);
+}
+
+/* ===== ПЛЕЙЕР ===== */
+.player-control {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.volume {
+    position: absolute;
+    background-image: url(..//assets/svg/volume.svg);
+    width: 23px;
+    height: 23px;
+    background-size: 23px 23px;
+    top: 1px;
+    right: 1px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.play-prev {
+    background-image: url(..//assets/svg/play-prev.svg);
+    width: 50px;
+    height: 50px;
+    background-size: 50px 50px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pause {
+    background-image: url(..//assets/svg/pause.svg);
+    width: 80px;
+    height: 80px;
+    background-size: 80px 80px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.play-next {
+    background-image: url(..//assets/svg/play-next.svg);
+    width: 50px;
+    height: 50px;
+    background-size: 50px 50px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.play {
+    background-image: url(..//assets/svg/play.svg);
+    width: 80px;
+    height: 80px;
+    background-size: 80px 80px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button-player {
+    transform: scale(1);
+}
+
+.button-player:active {
+    transform: scale(0.950);
+}
+
+.button-player:hover {
+    opacity: 1;
+}
+
+/* ===== ПЛЕЙЛИСТ ===== */
+.playlist-item {
+    color: white;
+    font-size: 32px;
+    list-style: none;
+}
+
+.playlist-item::before {
+    content: "\2713";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.activ {
+    color: coral;
+}
+
+/* ===== ПОГОДА ===== */
+.weather {
+    width: 350px;
+    color: white;
+    font-size: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.weather-icon {
+    font-size: 50px;
+}
+
+.owf:before {
+    font-size: 45px;
+}
+
+/* ===== АУДИОПЛЕЙЕР (расширенный) ===== */
+.timeline {
+    background: white;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 2px 10px 0 #0008;
+    width: 100%;
+    height: 10px;
+}
+
+.progress {
+    width: 0%;
+    background: coral;
+    height: 100%;
+    transition: 0.25s;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+    opacity: 0.7;
+}
+
+.controls {
+    background: #444;
+    box-shadow: 0 0 20px 0 #000a;
+    font-family: 'Arial-MT';
+    color: white;
+}
+
+.audio-time {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.volume-line {
+    display: none;
+    background: white;
+    width: 50px;
+    height: 10px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 2px 10px 0 #0008;
+    position: absolute;
+    left: 23px;
+    top: 5px;
+}
+
+.volume-progress {
+    width: 0%;
+    background: coral;
+    height: 100%;
+    transition: 0.25s;
+}

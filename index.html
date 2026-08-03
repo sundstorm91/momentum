@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/owfont-regular.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>momentum</title>
+
+    <script type="module" src="./js/date.js" defer></script>
+    <script type="module" src="./js/weather.js" defer></script>
+    <script type="module" src="./js/audioPlayerAdvanced.js" defer></script>
+
+</head>
+<body>
+
+<header class="header">
+    <div class="player">
+        <div class="player-control">
+            <button class="play-prev button-player"></button>
+            <button class="play button-player"></button>
+            <button class="play-next button-player"></button>
+            <div class="volume">
+                <div class="volume-line">
+                    <div class="volume-progress"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="progress"></div>
+        </div>
+
+        <div class="controls">
+            <div class="audio-time">
+                <div class="current-time audio"></div>
+                <div class="divider">/</div>
+                <div class="full-time audio"></div>
+            </div>
+            <div class="name-music"></div>
+        </div>
+
+
+
+        <ul class="playlist-container"></ul>
+    </div>
+    <div class="weather">
+        <input type="text" class="city">
+        <div class="weather-icon owf"></div>
+        <div class="weather-error"></div>
+        <div class="description-container">
+            <span class="temperature"></span>
+            <span class="weather-description"></span>
+        </div>
+        <div class="wind"></div>
+        <div class="humidity"></div>
+    </div>
+</header>
+<main class="main">
+    <button class="prev-slider slider"></button>
+    <button class="next-slider slider"></button>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greetins-container">
+        <div class="const-greet"></div>
+        <input type="text" class="greet-name" placeholder="[Enter name]">
+    </div>
+
+</main>
+
+<!-- <button class="btn" style="width:50px" >TEST</button> -->
+
+</body>
+</html>
