@@ -1,39 +1,56 @@
 @font-face {
     font-family: 'Arial-MT';
-    src: url('..//assets/fonts/Arial-MT.woff')
+    src: url('..//assets/fonts/Arial-MT.woff');
+}
+
+/* ===== ФОН НА ВЕСЬ ЭКРАН ===== */
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 body {
-    margin: 0;                    /* ← убрать отступы */
-    padding: 0;                   /* ← убрать паддинги */
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
     font-family: 'Arial', sans-serif;
     font-size: 24px;
     color: #fff;
-    background: url(style.css) center/cover, rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
     background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     transition: background-image 1s ease-in-out;
-    /* overflow: hidden; */       /* ← закомментировать или убрать */
     display: flex;
     flex-direction: column;
 }
 
+/* ===== ХЕДЕР ===== */
 .header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 50px 0 50px;    /* ← паддинги только для хедера */
-    margin-bottom: 50px;          /* ← уменьшить отступ */
+    padding: 20px 50px 0 50px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 5;
 }
 
+/* ===== ОСНОВНОЙ БЛОК ===== */
 .main {
-    flex: 1;                      /* ← растянуть на всю высоту */
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;      /* ← вертикальное центрирование */
-    align-items: center;          /* ← горизонтальное центрирование */
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 5;
 }
 
+/* ===== ВРЕМЯ ===== */
 .time {
     min-height: 124px;
     margin-bottom: 10px;
@@ -43,6 +60,7 @@ body {
     color: white;
 }
 
+/* ===== ДАТА ===== */
 .date {
     min-height: 28px;
     font-size: 32px;
@@ -50,11 +68,12 @@ body {
     color: white;
 }
 
+/* ===== ПРИВЕТСТВИЕ ===== */
 .greetins-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;              /* ← чтобы на маленьких экранах не ломалось */
+    flex-wrap: wrap;
 }
 
 * {
@@ -64,53 +83,6 @@ body {
 .const-greet {
     font-size: 50px;
     color: #fff;
-}
-
-
-.prev-slider {
-    position: absolute;
-    background-image: url(..//assets/svg/slider-prev.svg);
-    width: 32px;
-    height: 32px;
-    background-size: 32px 32px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: 0;
-    outline: 0;
-    opacity: .6;
-    cursor: pointer;
-    transition: .3s;
-    transform: scale(1);
-    top: 980px;
-    left: 27px;
-}
-
-.slider:hover {
-    opacity: 1;
-}
-
-.slider:active {
-    transform: scale(0.9);
-}
-
-.next-slider {
-    position: absolute;
-    background-image: url(..//assets/svg/slider-next.svg);
-    width: 32px;
-    height: 32px;
-    background-size: 32px 32px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: 0;
-    outline: 0;
-    opacity: .6;
-    cursor: pointer;
-    transition: .3s;
-
-    top: 980px;
-    right: 27px;
 }
 
 .greet-name {
@@ -124,8 +96,8 @@ body {
     outline: 0;
 }
 
+/* ===== ГОРОД ===== */
 .city {
-
     width: 100%;
     height: 34px;
     padding: 5px;
@@ -136,15 +108,63 @@ body {
     outline: 0;
     border-bottom: 1px solid #fff;
     background-color: transparent;
-
 }
 
+/* ===== СТРЕЛКИ СЛАЙДЕРА ===== */
+.prev-slider {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    background-image: url(..//assets/svg/slider-prev.svg);
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 100;
+}
+
+.next-slider {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-image: url(..//assets/svg/slider-next.svg);
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 100;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider:active {
+    transform: scale(0.9);
+}
+
+/* ===== ПЛЕЙЕР ===== */
 .player-control {
     position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-
 }
 
 .volume {
@@ -159,10 +179,7 @@ body {
     background-color: transparent;
 }
 
-
-
 .play-prev {
-
     background-image: url(..//assets/svg/play-prev.svg);
     width: 50px;
     height: 50px;
@@ -174,12 +191,10 @@ body {
     outline: 0;
     opacity: 0.5;
     cursor: pointer;
-    transition: .3s;
-
+    transition: 0.3s;
 }
 
 .pause {
-
     background-image: url(..//assets/svg/pause.svg);
     width: 80px;
     height: 80px;
@@ -191,12 +206,10 @@ body {
     outline: 0;
     opacity: 0.5;
     cursor: pointer;
-    transition: .3s;
-
+    transition: 0.3s;
 }
 
 .play-next {
-
     background-image: url(..//assets/svg/play-next.svg);
     width: 50px;
     height: 50px;
@@ -208,12 +221,10 @@ body {
     outline: 0;
     opacity: 0.5;
     cursor: pointer;
-    transition: .3s;
-
+    transition: 0.3s;
 }
 
 .play {
-
     background-image: url(..//assets/svg/play.svg);
     width: 80px;
     height: 80px;
@@ -225,28 +236,27 @@ body {
     outline: 0;
     opacity: 0.5;
     cursor: pointer;
-    transition: .3s;
-
+    transition: 0.3s;
 }
 
 .button-player {
-    transform: scale(1)
+    transform: scale(1);
 }
 
 .button-player:active {
-    transform: scale(0.950)
+    transform: scale(0.950);
 }
-.button-player:hover {
 
+.button-player:hover {
     opacity: 1;
 }
 
+/* ===== ПЛЕЙЛИСТ ===== */
 .playlist-item {
     color: white;
     font-size: 32px;
     list-style: none;
 }
-
 
 .playlist-item::before {
     content: "\2713";
@@ -258,6 +268,7 @@ body {
     color: coral;
 }
 
+/* ===== ПОГОДА ===== */
 .weather {
     width: 350px;
     color: white;
@@ -276,9 +287,7 @@ body {
     font-size: 45px;
 }
 
-
-/* ============ audio-player advanced ============ */
-
+/* ===== АУДИОПЛЕЙЕР (расширенный) ===== */
 .timeline {
     background: white;
     width: 100%;
@@ -293,14 +302,14 @@ body {
     width: 0%;
     background: coral;
     height: 100%;
-    transition: .25s;
+    transition: 0.25s;
 }
 
 .player {
     display: flex;
     flex-direction: column;
     row-gap: 6px;
-    opacity: .7;
+    opacity: 0.7;
 }
 
 .controls {
@@ -332,6 +341,5 @@ body {
     width: 0%;
     background: coral;
     height: 100%;
-    transition: .25s;
+    transition: 0.25s;
 }
-
