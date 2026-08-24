@@ -196,13 +196,4 @@ document.querySelector('.volume').addEventListener('click', function () {
 const playListItems = document.querySelectorAll('.playlist-item')
 var arr = Array.prototype.slice.call(playListItems)
 
-
-document.querySelector('.btn').addEventListener('click', function () {
-    console.log(`playnum ${playNum}`)
-    console.log(`playlist- ${playList[playNum].src}`)
-    /* console.log(`playlist- ${playListContainer[2]}`) */
-
-
-})
-
 import playList from "./playList.js"
